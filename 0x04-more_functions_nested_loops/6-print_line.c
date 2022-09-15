@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * print_line - prints a line
  *
@@ -13,4 +13,4 @@ void print_line(int n)
 		_putchar('_');
 	}
 	_putchar('\n');
-}
+}}
