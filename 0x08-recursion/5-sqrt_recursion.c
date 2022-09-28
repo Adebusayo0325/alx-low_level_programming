@@ -1,36 +1,29 @@
-#include "holberton.h"
-/**
- * helper - helps decide if i'm right
- * @i: integer to guess
- * @n: integer to get root of
- * Return: value of root
- */
-int helper(int i, int n)
-{
-	int j;
+#include "main.h"
 
-	if (i * i != n)
-	{
-		if (i > n)
-		{
-			return (-1);
-		}
-		j = helper(i + 1, n);
-		return (j + 1);
-	}
-	return (0);
-}
+int _sqrt(int, int);
 /**
- * _sqrt_recursion - returns square root
- * @n: integer to return
- * Return: returns int of squareroot
+ * _sqrt_recursion - sqrt using recursion
+ * @n: parameter to be sqrt
+ * Return: square root of number
  */
 int _sqrt_recursion(int n)
 {
-	int i = 0;
+	return (_sqrt(n, 1));
+}
 
-	if (helper(i, n) == n && n != 1)
+/**
+ * _sqrt - recursive square root
+ * @n: number
+ * @i: iterator
+ * Return: a number
+ */
+int _sqrt(int n, int i)
+{
+	int square = i * i;
+
+	if (square > n)
 		return (-1);
-	return (helper(i, n));
-
+	if (square == n)
+		return (i);
+	return (_sqrt(n, i + 1));
 }
