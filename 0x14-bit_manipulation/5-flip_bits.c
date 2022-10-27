@@ -1,19 +1,19 @@
 #include "main.h"
-#include "2-get_bit.c"
 /**
- * clear_bit - clears index to 0
- * @n: integer to pass
- * @index: index to go to
- * Return: returns integer val
+ * flip_bits - flips bits
+ * @n: first number
+ * @m: second number
+ * Return: unsigned int value of number
  */
-int clear_bit(unsigned long int *n, unsigned int index)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	if (index > 32)
-		return (-1);
+	unsigned long int flips, count = 0;
 
-	(*n) &= ~(1 << index);
-
-	if (get_bit((*n), index) == 0)
-		return (1);
-	return (-1);
+	flips = n ^ m;
+	while (flips > 0)
+	{
+		count += flips & 1;
+		flips >>= 1;
+	}
+	return (count);
 }
